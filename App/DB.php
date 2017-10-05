@@ -6,8 +6,10 @@
  * Date: 04.10.2017
  * Time: 10:30
  */
-    class DB extends Singleton
+    class DB
     {
+
+        use Singleton;
 
         protected $dbh;
 

@@ -14,10 +14,3 @@
     }
 
     sendEmail($users[0], 'message');
-
-    $s = \App\Singleton::instance();
-    $s->counter = 1;
-    var_dump($s);
-
-    $n = \App\Singleton::instance();
-    var_dump($n);
