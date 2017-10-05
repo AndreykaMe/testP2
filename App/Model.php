@@ -9,13 +9,27 @@
 namespace App;
 
 
-class Model
+abstract class Model
 {
     const TABLE = '';
 
     public static function findAll()
     {
-        $db = new DB();
-        return $db->query('SELECT * FROM ' . static::TABLE, static::class);
+        $db = DB::instance();
+        return $db->query('SELECT * FROM ' . static::TABLE, static::class, []);
     }
+
+    public static function findById(int $id)
+    {
+        $db = DB::instance();
+        $arr = $db->query('SELECT * FROM ' . static::TABLE . ' WHERE id = :id', static::class, [
+            ':id' => $id
+        ]);
+        if(!empty($arr)){
+            return $arr[0];
+        } else {
+            return false;
+        }
+    }
+
 }
