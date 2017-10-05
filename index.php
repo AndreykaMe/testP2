@@ -6,11 +6,7 @@
 
     //include('App/Views/newsTemplate.php');
 
-    $users = \App\Models\User::findAll();
-
-    function sendEmail(\App\Models\User $user, string $message)
-    {
-        echo 'Почта уходит ' . $user->email;
-    }
-
-    sendEmail($users[0], 'message');
+    $user = new \App\Models\User();
+    $user->name = 'Vasya';
+    $user->email = 'Vasya@var.ru';
+    $user->insert();
