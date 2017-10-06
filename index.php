@@ -6,7 +6,9 @@
 
     //include('App/Views/newsTemplate.php');
 
-    $user = new \App\Models\User();
-    $user->name = 'Vasya';
-    $user->email = 'Vasya@var.ru';
-    $user->insert();
+    $user = \App\Models\User::findById(21);
+    //$user->name = 'Roman';
+    //$user->email = 'Roman@roma.ru';
+    //$user->insert();
+    $user->name = 'Roman';
+    $user->update();

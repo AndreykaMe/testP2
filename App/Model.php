@@ -60,6 +60,28 @@ abstract class Model
         (' . implode(',', array_keys($values)) . ')';
         $db = DB::instance();
         $db->query($sql, static::class, $values);
+        $this->id = $db->lastInsertId();
+    }
+
+    public function update()
+    {
+
+        $columns = [];
+        $values = [];
+
+        foreach($this as $k => $v) {
+            $values[':' . $k] = $v;
+            if('id' == $k) {
+                continue;
+            }
+            $columns[] = $k . '=:' . $k;
+        }
+
+
+        $sql = 'UPDATE ' . static::TABLE . ' SET ' .
+             implode(',', $columns) . ' WHERE id=:id';
+        $db = DB::instance();
+        return $db->query($sql, static::class, $values);
     }
 
 }
