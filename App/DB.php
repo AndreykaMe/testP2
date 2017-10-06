@@ -12,10 +12,12 @@
         use Singleton;
 
         protected $dbh;
+        protected $cfg;
 
         protected function __construct()
         {
-            $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=php2', 'root', '');
+            $cfg = Config::instance();
+            $this->dbh = new \PDO('mysql:host=' . $cfg->data['db']['host'] . ';dbname=' . $cfg->data['db']['dbname'] , $cfg->data['db']['user'], $cfg->data['db']['password']);
         }
 
         public function execute($sql)
