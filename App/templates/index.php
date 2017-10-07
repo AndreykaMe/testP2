@@ -20,9 +20,24 @@
 <body>
 <h1>Hello, world!</h1>
 
+<?php foreach ($users as $user) {
+
+    ?>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <?php if (!empty($user->name)) { ?>
+            <?php echo $user->name; ?>
+            <?php } else { ?>
+            No name
+            <?php } ?>
+        </div>
+        <div class="panel-body"><?php echo $user->email; ?></div>
+    </div>
+<?php } ?>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>

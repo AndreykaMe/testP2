@@ -13,4 +13,6 @@
     //$user->name = 'Roman';
     //$user->delete();
 
+    $users = \App\Models\User::findAll();
+
     include __DIR__ . '/App/templates/index.php';
