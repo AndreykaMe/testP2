@@ -84,4 +84,26 @@ abstract class Model
         return $db->query($sql, static::class, $values);
     }
 
+    public function save()
+    {
+        if ($this->isNew()) {
+            update();
+        } else {
+            insert();
+        }
+    }
+
+    public function delete()
+    {
+        if (isset($this->id)) {
+            $sql = 'DELETE FROM ' . static::TABLE . ' WHERE id=:id';
+            $db = DB::instance();
+            return $db->query($sql, static::class, [
+                ':id' => $this->id ]);
+        } else {
+            return false;
+        }
+
+    }
+
 }
