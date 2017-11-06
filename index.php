@@ -13,12 +13,8 @@
     //$user->name = 'Roman';
     //$user->delete();
 
-    $user = new \App\Models\User();
-    $user->getEmail();
-
 
     $view = new App\View;
-    $view->title = 'Мой крутой сайт';
-    $view->users = \App\Models\User::findAll();
-    $view->display(__DIR__ . '/App/templates/index.php');
+    $view->news = \App\Models\News::findAll();
+    $view->display(__DIR__ . '/App/Views/newsTemplate.php');
 

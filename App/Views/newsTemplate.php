@@ -9,6 +9,7 @@
             ?>
         <h2><a href="<?php echo  'article.php?id=' . $new->id; ?>"><?php echo $new->article; ?></a></h2>
             <p><?php echo $new->text; ?></p>
+            <span><?php echo $new->author->name ?></span>
     <?php
         }   ?>
 </body>

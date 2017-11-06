@@ -9,7 +9,7 @@
 namespace App;
 
 
-class View
+class View implements \Countable
 {
 
     protected $data = [];
@@ -38,11 +38,19 @@ class View
     {
 
         ob_start();
+        foreach ($this->data as $prop => $value) {
+            $$prop = $value;
+        }
         include $template;
         $content = ob_get_contents();
         ob_end_clean();
         return $content;
 
+    }
+
+    public function count()
+    {
+        return count($this->data);
     }
 
 }
